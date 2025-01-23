@@ -22,10 +22,17 @@ public class PromptGenerator
         };
     }
 
+    // Get a random prompt
     public string GetRandomPrompt()
     {
         Random random = new Random();
         int index = random.Next(Prompts.Count);
         return Prompts[index];
+    }
+    
+    public void AddCustomPrompt(string prompt)
+    {
+        Prompts.Add(prompt);
+        Console.WriteLine("Custom prompt added successfully.");
     }
 }

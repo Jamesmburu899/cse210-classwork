@@ -26,6 +26,24 @@ public class Journal
         }
     }
 
+    public void DisplayEntriesByDate(string dateString)
+    {
+        bool found = false;
+        foreach (var entry in _entries)
+        {
+            if (entry.Date == dateString)
+            {
+                entry.Display();
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No entries found for that date.");
+        }
+    }
+
     public void SaveToFile(string filename)
     {
         using (StreamWriter writer = new StreamWriter(filename))
